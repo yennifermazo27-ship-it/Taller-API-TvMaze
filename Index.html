@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo de Chicago</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <input type="text" id="search" placeholder="Buscar serie..." />
+    <button id="search-btn">Buscar</button>
+    <h1>Obras de Arte</h1>
+    <div id="loader">Cargando datos...</div>
+    <div id="error"></div>
+    <select id="items-per-page">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+    </select>
+    <div id="controles">
+        <button id="prev-10-btn">« 10</button>
+        <button id="prev-btn">Anterior</button>
+
+        <span id="page-info"></span>
+
+        <button id="next-btn">Siguiente</button>
+        <button id="next-10-btn">10 »</button>
+        
+    </div>
+    
+    <div id="galeria"></div>
+    
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
