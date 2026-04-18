@@ -4,7 +4,8 @@ const state = {
     limit: 10,
     totalPages: 0,
     loading: false,
-    error: null
+    error: null,
+    query: ""
 };
 
 export function getState(key) {

@@ -1,13 +1,18 @@
 import { getState, setState } from "./state.js";
-import { loadArtworks } from "./service.js";
+import { loadSeries } from "./service.js";
 
 export function addSearchEvent() {
     document.getElementById("search-btn").addEventListener("click", async () => {
         const value = document.getElementById("search").value;
         setState("query", value);
         setState("page", 1);
-        await loadArtworks();
+        await loadSeries();
         render();
+    });
+    document.getElementById("search").addEventListener("keypress", async (e) => {
+    if (e.key === "Enter") {
+        document.getElementById("search-btn").click();
+    }
     });
 }
 
@@ -32,7 +37,7 @@ export function addSelectEvent() {
     select.addEventListener("change", async (e) => {
         setState("limit", Number(e.target.value));
         setState("page", 1);
-        await loadArtworks();
+        await loadSeries();
         render();
     });
 }

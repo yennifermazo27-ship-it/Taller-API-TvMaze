@@ -3,9 +3,7 @@ import { render } from "./ui.js";
 
 const URL = "https://api.tvmaze.com/search/shows?q=";
 
-const termino = getState("query");
-
-export async function loadArtworks() {
+export async function loadSeries() {
     try {
         setState("loading", true);
         setState("error", null);
@@ -13,9 +11,14 @@ export async function loadArtworks() {
 
         const page = getState("page");
         const limit = getState("limit");
+        const termino = getState("query");
 
-        // Puedes cambiar el término de búsqueda aquí
-        const termino = "batman";
+        if (!termino) {
+            setState("artworks", []);
+            setState("totalPages", 0);
+            setState("loading", false);
+            return;
+        }
 
         const res = await fetch(`${URL}${termino}`);
 
@@ -48,7 +51,7 @@ export async function goNextPage() {
 
     if (currentPage < totalPages) {
         setState("page", currentPage + 1);
-        await loadArtworks();
+        await loadSeries();
     }
 }
 
@@ -57,7 +60,7 @@ export async function goPrevPage() {
 
     if (currentPage > 1) {
         setState("page", currentPage - 1);
-        await loadArtworks();
+        await loadSeries();
     }
 }
 
@@ -72,7 +75,7 @@ export async function goNext10Pages() {
     }
 
     setState("page", newPage);
-    await loadArtworks();
+    await loadSeries();
 }
 
 export async function goPrev10Pages() {
@@ -85,5 +88,5 @@ export async function goPrev10Pages() {
     }
 
     setState("page", newPage);
-    await loadArtworks();
+    await loadSeries();
 }

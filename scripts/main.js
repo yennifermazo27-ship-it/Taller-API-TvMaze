@@ -1,5 +1,5 @@
 import {
-    loadArtworks,
+    loadSeries,
     goPrevPage,
     goNextPage,
     goNext10Pages,
@@ -12,7 +12,8 @@ import {
     addPrevPageBtnEvent,
     addNext10BtnEvent,
     addPrev10BtnEvent,
-    addSelectEvent
+    addSelectEvent,
+    addSearchEvent
 } from "./ui.js";
 
 async function startApp() {
@@ -23,8 +24,9 @@ async function startApp() {
     addNext10BtnEvent(goNext10Pages);
 
     addSelectEvent();
+    addSearchEvent();
 
-    await loadArtworks();
+    await loadSeries();
     render();
 }
 
