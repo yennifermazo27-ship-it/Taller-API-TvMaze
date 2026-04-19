@@ -1,11 +1,12 @@
 const state = {
-    artworks: [],
+    series: [],
     page: 1,
     limit: 10,
     totalPages: 0,
     loading: false,
     error: null,
-    query: ""
+    query: "",
+    genre: "all"
 };
 
 export function getState(key) {
@@ -15,5 +16,3 @@ export function getState(key) {
 export function setState(key, newValue) {
     state[key] = newValue;
 }
-
-query: "batman"

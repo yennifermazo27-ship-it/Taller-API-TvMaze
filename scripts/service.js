@@ -12,9 +12,10 @@ export async function loadSeries() {
         const page = getState("page");
         const limit = getState("limit");
         const termino = getState("query");
+        const genre = getState("genre");
 
         if (!termino) {
-            setState("artworks", []);
+            setState("series", []);
             setState("totalPages", 0);
             setState("loading", false);
             return;
@@ -26,7 +27,13 @@ export async function loadSeries() {
             throw new Error(`Error HTTP: ${res.status}`);
         }
 
-        const data = await res.json();
+        let data = await res.json();
+
+        if (genre !== "all") {
+            data = data.filter(item =>
+                item.show.genres.includes(genre)
+            );
+        }
 
         // 🔥 IMPORTANTE: TVMaze no tiene paginación, así que simulamos
         const start = (page - 1) * limit;
@@ -34,7 +41,7 @@ export async function loadSeries() {
 
         const paginated = data.slice(start, end);
 
-        setState("artworks", paginated);
+        setState("series", paginated);
         setState("totalPages", Math.ceil(data.length / limit));
 
     } catch (error) {

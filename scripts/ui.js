@@ -6,6 +6,7 @@ export function addSearchEvent() {
         const value = document.getElementById("search").value;
         setState("query", value);
         setState("page", 1);
+
         await loadSeries();
         render();
     });
@@ -42,7 +43,7 @@ export function addSelectEvent() {
     });
 }
 
-function getArtworkCard(item) {
+function getSerieCard(item) {
     const show = item.show;
 
     const image = show.image?.medium || "";
@@ -51,7 +52,7 @@ function getArtworkCard(item) {
     const rating = show.rating?.average || "Sin rating";
 
     return `
-    <div class="artwork-card">
+    <div class="serie-card">
         <img class="obra" src="${image}" />
         <h2>${name}</h2>
         <div class="info">
@@ -67,7 +68,7 @@ export function render() {
     const errorDiv = document.getElementById("error");
     const pageInfo = document.getElementById("page-info");
 
-    const artworks = getState("artworks");
+    const series = getState("series");
     const loading = getState("loading");
     const error = getState("error");
     const page = getState("page");
@@ -88,8 +89,8 @@ export function render() {
 
     // Render
     container.innerHTML = "";
-    artworks.forEach((art) => {
-        container.innerHTML += getArtworkCard(art);
+    series.forEach((s) => {
+        container.innerHTML += getSerieCard(s);
     });
 
     // Info página
@@ -121,6 +122,17 @@ export function addNext10BtnEvent(action) {
 export function addPrev10BtnEvent(action) {
     document.getElementById("prev-10-btn").addEventListener("click", async () => {
         await action();
+        render();
+    });
+}
+
+export function addGenreFilterEvent() {
+    const select = document.getElementById("genre-filter");
+
+    select.addEventListener("change", async (e) => {
+        setState("genre", e.target.value);
+        setState("page", 1);
+        await loadSeries();
         render();
     });
 }

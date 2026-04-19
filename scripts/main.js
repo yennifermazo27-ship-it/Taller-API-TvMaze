@@ -13,7 +13,8 @@ import {
     addNext10BtnEvent,
     addPrev10BtnEvent,
     addSelectEvent,
-    addSearchEvent
+    addSearchEvent,
+    addGenreFilterEvent
 } from "./ui.js";
 
 async function startApp() {
@@ -25,6 +26,7 @@ async function startApp() {
 
     addSelectEvent();
     addSearchEvent();
+    addGenreFilterEvent();
 
     await loadSeries();
     render();
