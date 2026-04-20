@@ -33,3 +33,13 @@ function pintarFavoritos() {
 
         contenedor.appendChild(div);
     });
+
+    contenedor.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-eliminar")) {
+            const id = e.target.dataset.id;
+            const actualizados = obtenerFavoritos().filter(f => f.show.id != id);
+            guardarFavoritos(actualizados);
+            pintarFavoritos();
+        }
+    });
+}
