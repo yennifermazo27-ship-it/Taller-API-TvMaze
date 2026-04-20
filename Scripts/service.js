@@ -9,3 +9,14 @@ export async function searchShows(query) {
         return [];
     }
 }
+
+export async function getShows() {
+    try {
+        const res = await fetch(`${BASE}/shows?page=0`);
+        const data = await res.json();
+        return data.map(show => ({ show }));
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
