@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Series de televisión</h1>
+    <input type="text" id="search" placeholder="Buscar serie..." />
+    <button id="search-btn">Buscar</button>
+    <select id="genre-filter">
+        <option value="all">Todos</option>
+        <option value="Drama">Drama</option>
+        <option value="Comedy">Comedia</option>
+        <option value="Action">Acción</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Romance">Romance</option>
+        <option value="Science-Fiction">Sci-Fi</option>
+        <option value="Horror">Terror</option>
+    </select>   
+    <div id="loader">Cargando datos...</div>
+    <div id="error"></div>
+    <select id="items-per-page">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+    </select>
+    <div id="controles">
+        <button id="prev-10-btn">« 10</button>
+        <button id="prev-btn">Anterior</button>
+
+        <span id="page-info"></span>
+
+        <button id="next-btn">Siguiente</button>
+        <button id="next-10-btn">10 »</button>
+        
+    </div>
+    
+    <div id="galeria"></div>
+    
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
