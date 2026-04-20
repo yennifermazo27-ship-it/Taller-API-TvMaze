@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu principal</title>
+   
+    
 </head>
 <body>
-    
+    <header class="encabezado">
+        <h1 class="logo">MOVIE<span> EXPLORER</span></h1>
+    </header>
+
+    <main class="main">
+        <h2 class="titulo">MENÚ PRINCIPAL</h2>
+
+        <form id="formPelis">
+            <input type="text" id="pelicula" placeholder="Buscar serie o película">
+            <button type="submit" id="buscar">Buscar</button>
+            <button type="button" id="favoritos">Favoritos</button>
+        </form>
+
+        <div id="historial"></div>
+        <div id="filtros"></div>
+
+        <div class="botones">
+            <div class="fila-botones">
+                <button id="btnPrev">Anterior</button>
+                <span id="indicadorPagina"></span>
+                <button id="btnNext">Siguiente</button>
+            </div>
+            <div class="fila-botones selector-pagina">
+                <span>Mostrar por página:</span>
+                <button class="btn-por-pagina" data-val="10">10</button>
+                <button class="btn-por-pagina" data-val="20">20</button>
+                <button class="btn-por-pagina" data-val="50">50</button>
+            </div>
+            <div id="paginacion"></div>
+        </div>
+
+        <div class="tarjetas"></div>
+
+    </main>
+
+    <footer class="footer">
+        <p>Trabajo API TvMaze</p>
+    </footer>
 </body>
 </html>
