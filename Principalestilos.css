@@ -1,0 +1,201 @@
+body {
+    display: block;
+    font-family: Georgia, serif;
+    margin: 0px;
+    background: #2A1F0A;
+}
+
+.encabezado {
+    text-align: center;
+    box-shadow: 0 0 20px #D4A017;
+    background: #1C1008;
+    padding: 20px;
+    border: 5px solid #1C1008;
+    
+}
+
+h1 {
+    display: block;
+    font-size: 2rem;
+    color: #FFF8E1;
+}
+
+p {
+    color: #F0C040;
+}
+
+.titulo {
+    color: #F0C040;
+    text-align: center;
+    margin: 5px 0px 0px;
+}
+
+.logo span {
+    color: #F0C040;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #D4A017;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 400px;
+   
+}
+
+.main {
+    padding: 20px;
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+    margin: 20px 0px 10px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 30px;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.tarjeta {
+    text-align: center;
+    background: #1C1008;
+    padding: 25px 10px;
+    border-radius: 20px;
+    border: 2px solid #3D2E10;
+    transform: scale(1);
+    box-shadow: 0 1px 10px #1C1008;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #FFF8E1;
+    cursor: pointer;
+}
+
+.tarjeta:hover {
+    transform: scale(1.08);
+    box-shadow: 0 3px 25px #D4A017;
+}
+
+#resultado {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3D2E10;
+    color: #F0C040;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+button:hover {
+    background-color: #D4A017;
+    
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.fila-botones {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+@keyframes pulse {
+    from {
+        transform: scaleX(1.0);
+    }
+    to {
+        transform: scaleX(0.95);
+    }
+}
+
+.footer  {
+    background: #1C1008;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    box-shadow: 0 0 20px #D4A017;
+}
+
+@media (min-width: 600px) {
+    .tarjetas {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
+
+@media (min-width: 900px) {
+    .tarjetas {
+        grid-template-columns: repeat(3, 250px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .tarjetas {
+        grid-template-columns: repeat(3, 300px);
+    }
+}
+
+#menos2, #mas2, #menos5, #mas5 {
+    background-color: #F0C040;
+    color: #1C1008;
+    
+}
+
+#menos2:hover, #mas2:hover, #menos5:hover, #mas5:hover {
+    background-color: #D4A017;
+    color: #1C1008;
+}
+
+#paginacion {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+#paginacion button {
+    margin: 3px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+#buscar {
+    background-color: #D4A017;
+    color: #1C1008;
+    
+}
+
+#buscar:hover {
+    background-color: #D4A017;
+    color: #1C1008;
+}
