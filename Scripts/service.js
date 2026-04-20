@@ -20,3 +20,13 @@ export async function getShows() {
         return [];
     }
 }
+
+export async function getShowById(id) {
+    try {
+        const res = await fetch(`${BASE}/shows/${id}`);
+        return await res.json();
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
